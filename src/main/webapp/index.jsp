@@ -17,11 +17,16 @@
             <p><label>Dni: </label><input type="text" name="dni"></p>
             <p><label>Nombre: </label><input type="text" name="nombre"></p>
             <p><label>Apellido: </label><input type="text" name="apellido"></p>
+            <p><label>Fecha Nacimiento: </label><input type="date" name="nacimiento"></p>
             <p><label>Correo: </label><input type="text" name="correo"></p>
             <p><label>Telefono: </label><input type="text" name="telefono"></p>
             <button type="submit">Enviar</button>
         </form>
         
+        <h1>Ver lista de usuarios</h1>
+        <form action="SvUsuario" method="GET">
+            <button type="submit">Mostrar Usuarios</button>
+        </form>
         
     </body>
 </html>
