@@ -28,7 +28,7 @@ import persistencia.Controladora;
  */
 @WebServlet(name = "SvUsuario", urlPatterns = {"/SvUsuario"})
 public class SvUsuario extends HttpServlet {
-Controladora control = new Controladora();
+
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -42,6 +42,7 @@ Controladora control = new Controladora();
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        Controladora control = new Controladora();
         List<Usuario> listaUsuario = new ArrayList<>();
         listaUsuario = control.traerUsuario();
         
@@ -58,7 +59,7 @@ Controladora control = new Controladora();
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        
+        Controladora control = new Controladora();
         String dni = request.getParameter("dni");
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");

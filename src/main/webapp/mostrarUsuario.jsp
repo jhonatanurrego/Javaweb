@@ -15,12 +15,13 @@
     </head>
     <body>
         <% 
-        List<Usuario> listaUsuarios = (List) request.getSession().getAttribute("listaUsuario");
+        List<Usuario> listaUsuarios = (List<Usuario>) request.getSession().getAttribute("listaUsuario");
+        if (listaUsuarios != null) {
         int cont = 1;
-        for (Usuario usu : listaUsuarios){
+        for (Usuario usu : listaUsuarios) {
         %>
         <h1>Hello World!</h1>
-        <p>Usuario N <%= cont %></p>
+        <p>Usuario N <%= cont++ %></p>
         <p>Dni: <%= usu.getDni() %></p>
         <p>Nombre: <%= usu.getNombre() %></p>
         <p>Apellido: <%= usu.getApellido() %></p>
@@ -28,6 +29,7 @@
         <p>Correo: <%= usu.getCorreo() %></p>
         <p>Telefono: <%= usu.getTelefono() %></p>
         
-        <% }%>
+        <% }
+            }%>
     </body>
 </html>
