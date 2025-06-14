@@ -1,0 +1,46 @@
+body {
+    background: url('https://images.unsplash.com/photo-1593697822032-738f6c81a0f4') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor {
+    background-color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+h1 {
+    color: #2E7D32;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.usuario {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.usuario p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.usuario:nth-child(even) {
+    background-color: rgba(210, 255, 210, 0.9);
+}
+
+.usuario:nth-child(odd) {
+    background-color: rgba(255, 230, 200, 0.9);
+}

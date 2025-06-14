@@ -1,32 +1,25 @@
-<%-- 
-    Document   : index
-    Created on : 2/06/2025, 1:38:52 p. m.
-    Author     : jhona
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <meta charset="UTF-8">
+        <title>Campamento de Verano</title>
+        <link rel="stylesheet" href="inicio.css">
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <form action="SvUsuario" method="POST"> 
-            <p><label>Dni: </label><input type="text" name="dni"></p>
-            <p><label>Nombre: </label><input type="text" name="nombre"></p>
-            <p><label>Apellido: </label><input type="text" name="apellido"></p>
-            <p><label>Fecha Nacimiento: </label><input type="date" name="nacimiento"></p>
-            <p><label>Correo: </label><input type="text" name="correo"></p>
-            <p><label>Telefono: </label><input type="text" name="telefono"></p>
-            <button type="submit">Enviar</button>
-        </form>
-        
-        <h1>Ver lista de usuarios</h1>
-        <form action="SvUsuario" method="GET">
-            <button type="submit">Mostrar Usuarios</button>
-        </form>
-        
+        <div class="contenedor">
+            <h1>¡Bienvenido al Campamento Aventuras Salvajes! 🌲🔥</h1>
+            <p>Descubre la magia de la naturaleza, explora senderos, haz amigos y vive la mejor experiencia de tu vida. ¡El verano te espera!</p>
+            <p>Regístrate ahora o inicia sesión para acceder a nuestras actividades.</p>
+
+            <div class="botones">
+                <form action="registro.jsp">
+                    <button type="submit">⛺ Registrarse</button>
+                </form>
+                <form action="login.jsp">
+                    <button class="boton-secundario" type="submit">🔑 Iniciar Sesión</button>
+                </form>
+            </div>
+        </div>
     </body>
 </html>

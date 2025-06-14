@@ -67,6 +67,9 @@ public class SvUsuario extends HttpServlet {
         String correo = request.getParameter("correo");
         String telefono = request.getParameter("telefono");
         
+        
+
+        
         LocalDate fecha_nacimiento_localdate = null; // Variable para LocalDate
         Date fecha_nacimiento_util_date = null;      // Variable para java.util.Date
 
@@ -103,8 +106,12 @@ public class SvUsuario extends HttpServlet {
         usu.setCorreo(correo);
         usu.setFecha_nacimiento(fecha_nacimiento_util_date);
         usu.setTelefono(telefono);
+        int clave = Integer.parseInt(request.getParameter("clave"));
+        usu.setContraseña(clave);
         
         control.crearUsuario(usu);
+        
+        
     }
 
     
