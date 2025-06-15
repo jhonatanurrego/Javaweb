@@ -106,9 +106,14 @@ public class SvUsuario extends HttpServlet {
         usu.setCorreo(correo);
         usu.setFecha_nacimiento(fecha_nacimiento_util_date);
         usu.setTelefono(telefono);
-        int clave = Integer.parseInt(request.getParameter("clave"));
-        usu.setContraseña(clave);
-        
+        try {
+            int clave = Integer.parseInt(request.getParameter("clave"));
+            usu.setContraseña(clave);
+            } catch (NumberFormatException e) {
+                System.err.println("Error al parsear la contraseña: " + e.getMessage());
+                response.sendRedirect("error.jsp?mensaje=El formato de la contraseña es inválido. Debe ser un número.");
+                return; // Detener la ejecución del servlet
+            }
         control.crearUsuario(usu);
         
         

@@ -5,6 +5,8 @@
 package persistencia;
 
 import java.util.List;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import logica.Usuario;
 
 /**
@@ -12,6 +14,7 @@ import logica.Usuario;
  * @author jhona
  */
 public class Controladora {
+    
     
     ControladoraPersistencia controlpersis = new ControladoraPersistencia();
     

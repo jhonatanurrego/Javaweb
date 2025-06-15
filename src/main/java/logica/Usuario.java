@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
 public class Usuario implements Serializable {
     
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     @Basic
     private String dni;
