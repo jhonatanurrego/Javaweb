@@ -22,4 +22,7 @@ public class ControladoraPersistencia {
         return usuJpa.findUsuarioEntities();
     }
     
+    public Usuario validarlogin(String email, String clave) {
+        return usuJpa.Validarlogin(email, clave);
+    }
 }

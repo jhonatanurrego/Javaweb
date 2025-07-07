@@ -1,11 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Inicio de Sesión - Campamento</title>
-    <style>
-        /* --- Tus estilos CSS existentes --- */
+
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -50,12 +43,6 @@
         h1 {
             font-size: 2.2em;
             color: #ffe4ff;
-            margin-bottom: 15px;
-        }
-
-        p {
-            color: #e9d7ff;
-            font-size: 1.1em;
             margin-bottom: 25px;
         }
 
@@ -123,61 +110,4 @@
         .botones-secundarios form button:hover {
             background: #a278c7;
         }
-
-        /* --- Nuevo estilo para el mensaje de error --- */
-        .mensaje-error {
-            color: #ffcccc; /* Un rojo claro para contrastar con el fondo oscuro */
-            background-color: rgba(255, 0, 0, 0.2); /* Un fondo semitransparente para el mensaje */
-            border: 1px solid #ff6666;
-            padding: 10px;
-            border-radius: 8px;
-            margin-bottom: 20px; /* Espacio debajo del mensaje */
-            font-weight: bold;
-            text-align: center;
-            animation: fadeIn 0.5s ease-out; /* Una pequeña animación para que aparezca */
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-    </style>
-</head>
-<body>
-    <div class="contenedor">
-        <h1>🔑 Iniciar Sesión</h1>
-        <p>Accede a tu cuenta para disfrutar de todas las aventuras del campamento.</p>
-
-        
-        <% 
-            String mensajeError = (String) request.getAttribute("mensajeError");
-            if (mensajeError != null && !mensajeError.isEmpty()) {
-        %>
-                <div class="mensaje-error"><%= mensajeError %></div>
-        <%
-            }
-        %>
-        
-        <form action="Svlogin" method="POST" class="formulario">
-            <label>Correo electrónico:
-                <input type="email" name="correo" required>
-            </label>
-            <label>Contraseña:
-                <input type="text" name="clave" required>
-            </label>
-            <button type="submit">Ingresar</button>
-        </form>
-
-        <p>¿Aún no tienes cuenta?</p>
-        <div class="botones-secundarios">
-            <form action="registro.jsp">
-                <button type="submit">⛺ Registrarse</button>
-            </form>
-            <form action="index.jsp">
-                <button type="submit">🏠 Volver al inicio</button>
-            </form>
-        </div>
-    </div>
-</body>
-</html>
+  

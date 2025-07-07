@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
-
-    <persistence-unit name="JavawebPU" transaction-type="RESOURCE_LOCAL">
-        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        
-        <!-- Clases de entidad -->
-        <class>logica.Usuario</class>
-
-        <properties>
-            <!-- Configuración de conexión a la base de datos -->
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/webpages?serverTimezone=UTC"/>
-            <property name="javax.persistence.jdbc.user" value="root"/>
-            <property name="javax.persistence.jdbc.password" value=""/>
-
-            <!-- Configuración de EclipseLink -->
-            <property name="javax.persistence.provider" value="org.eclipse.persistence.jpa.PersistenceProvider"/>
-            <property name="eclipselink.target-database" value="MySQL"/>
-            <property name="eclipselink.logging.level" value="FINE"/>
-            <property name="eclipselink.ddl-generation" value="update"/>
-            <property name="eclipselink.weaving" value="false"/>
-        </properties>
-    </persistence-unit>
+<persistence version="2.2" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+  <persistence-unit name="JavawebPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <!-- Clases de entidad -->
+    <class>logica.Usuario</class>
+    <class>persistencia.Clubs</class>
+    <class>persistencia.Usuario</class>
+    <class>logica.Clubs</class>
+    <properties>
+      <!-- Configuración de conexión a la base de datos -->
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/webpages?serverTimezone=UTC"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
+      <!-- Configuración de EclipseLink -->
+      <property name="javax.persistence.provider" value="org.eclipse.persistence.jpa.PersistenceProvider"/>
+      <property name="eclipselink.target-database" value="MySQL"/>
+      <property name="eclipselink.logging.level" value="FINE"/>
+      <property name="eclipselink.ddl-generation" value="update"/>
+      <property name="eclipselink.weaving" value="false"/>
+    </properties>
+  </persistence-unit>
 </persistence>

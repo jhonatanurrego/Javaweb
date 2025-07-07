@@ -26,12 +26,12 @@ public class Usuario implements Serializable {
     @Basic
     private String correo;
     private String telefono;
-    private int contraseña;
+    private String clave;
 
     public Usuario() {
     }
 
-    public Usuario(int id, String dni, String nombre, String apellido, Date fecha_nacimiento, String correo, String telefono, int contraseña) {
+    public Usuario(int id, String dni, String nombre, String apellido, Date fecha_nacimiento, String correo, String telefono, String clave) {
         this.id = id;
         this.dni = dni;
         this.nombre = nombre;
@@ -39,8 +39,18 @@ public class Usuario implements Serializable {
         this.fecha_nacimiento = fecha_nacimiento;
         this.correo = correo;
         this.telefono = telefono;
-        this.contraseña = contraseña;
+        this.clave = clave;
     }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+
+    
 
     
 
@@ -100,13 +110,7 @@ public class Usuario implements Serializable {
         this.telefono = telefono;
     }
 
-    public int getContraseña() {
-        return contraseña;
-    }
-
-    public void setContraseña(int contraseña) {
-        this.contraseña = contraseña;
-    }
+    
 
     
     

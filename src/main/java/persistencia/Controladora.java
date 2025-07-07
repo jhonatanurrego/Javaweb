@@ -25,4 +25,9 @@ public class Controladora {
     public List<Usuario> traerUsuario (){
         return controlpersis.traerUsuario();
     }
+    
+    public Usuario Validarlogin(String correo,String clave){
+        return controlpersis.validarlogin(correo, clave);
+    }
+    
 }

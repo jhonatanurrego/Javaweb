@@ -7,7 +7,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import logica.Usuario;
@@ -136,5 +138,26 @@ public class UsuarioJpaController implements Serializable {
             em.close();
         }
     }
-    
-}
+    // Nuevo método para buscar usuario por correo y contraseña
+    public Usuario Validarlogin(String correo, String clave) {
+        EntityManager em = getEntityManager();
+        try {
+            // JPQL query para buscar un usuario por su correo y contraseña
+            // Asegúrate de que los nombres de los atributos 'correo' y 'contrasenia' coincidan con los de tu entidad Usuario
+            TypedQuery<Usuario> query = em.createQuery(
+                "SELECT u FROM Usuario u WHERE u.correo = :correo AND u.clave = :clave", Usuario.class);
+            query.setParameter("correo", correo);
+            query.setParameter("clave", clave);
+            
+            // getSingleResult() lanza NoResultException si no encuentra resultados
+            // y NonUniqueResultException si encuentra más de uno (lo cual no debería pasar para login)
+            return query.getSingleResult();
+        } catch (NoResultException e) {
+            return null; // No se encontró ningún usuario con esas credenciales
+        } finally {
+            em.close();
+            }
+        }
+    }
+
+
