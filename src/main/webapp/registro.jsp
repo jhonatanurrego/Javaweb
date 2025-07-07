@@ -35,9 +35,7 @@
         </form>
 
         <div class="botones-secundarios">
-            <form action="SvUsuario" method="GET">
-                <button type="submit">Ver lista de campistas</button>
-            </form>
+            
             <form action="iniciarSesion.jsp" >
                 <button type="submit">🔑 Iniciar Sesión</button>
             </form>

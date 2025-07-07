@@ -110,6 +110,8 @@ public class SvUsuario extends HttpServlet {
         usu.setClave(clave);
         control.crearUsuario(usu);
         
+        HttpSession misesion = request.getSession();
+        response.sendRedirect("principal.jsp");
         
     }
 
