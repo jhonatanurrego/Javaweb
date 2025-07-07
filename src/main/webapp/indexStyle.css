@@ -1,46 +1,87 @@
+/* Fondo con gradiente púrpura */
 body {
-    background: url('https://images.unsplash.com/photo-1593697822032-738f6c81a0f4') no-repeat center center fixed;
-    background-size: cover;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
     margin: 0;
-    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #4b006e, #9b59b6, #6c3483);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    animation: fondoAnimado 10s infinite alternate;
+}
+
+/* Animación de fondo sutil */
+@keyframes fondoAnimado {
+    0% { background-position: left top; }
+    100% { background-position: right bottom; }
 }
 
 .contenedor {
-    background-color: rgba(255, 255, 255, 0.9);
-    max-width: 500px;
-    margin: 80px auto;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     text-align: center;
+    max-width: 600px;
+    backdrop-filter: blur(8px);
+    animation: aparecer 1s ease-out;
+}
+
+/* Animación de entrada */
+@keyframes aparecer {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 h1 {
-    margin-bottom: 25px;
-    color: #2E7D32;
+    font-size: 2.5em;
+    color: #ffe4ff;
+    margin-bottom: 20px;
 }
 
-.formulario label {
-    display: block;
-    text-align: left;
-    margin-bottom: 15px;
-    font-weight: bold;
+p {
+    font-size: 1.1em;
+    margin: 10px 0;
+    line-height: 1.6;
+    color: #f5d9ff;
 }
 
-.formulario input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    margin-top: 5px;
+.botones {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 button {
-    background-color: #4CAF50;
+    background: #b266ff;
     color: white;
     border: none;
-    padding: 12px 20px;
-    font-size: 16px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: #d1aaff;
+}
+
+.boton-secundario {
+    background: #7a4da1;
+}
+
+.boton-secundario:hover {
+    background: #9d76c1;
 }

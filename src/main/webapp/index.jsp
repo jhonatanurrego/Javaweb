@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Campamento de Verano</title>
-        <link rel="stylesheet" href="inicio.css">
+        <link rel="stylesheet" href="indexStyle.css">
     </head>
     <body>
         <div class="contenedor">
