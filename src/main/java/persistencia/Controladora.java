@@ -30,4 +30,18 @@ public class Controladora {
         return controlpersis.validarlogin(correo, clave);
     }
     
+   
+
+    public void eliminarUsuario(int id) {
+        controlpersis.eliminarUsuario(id);
+    }
+
+    public Usuario traerUsuario(int id) {
+        return controlpersis.traerUsuario(id);
+    }
+
+    public void editarUsuario(Usuario usu) {
+       controlpersis.editarUsuario(usu);
+    }
+    
 }

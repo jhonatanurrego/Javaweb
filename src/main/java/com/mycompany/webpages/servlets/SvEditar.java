@@ -6,60 +6,55 @@ package com.mycompany.webpages.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.time.ZoneId;
-import java.util.ArrayList;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import logica.Usuario;
 import persistencia.Controladora;
+import logica.Usuario;
 
-/**
- *
- * @author jhona
- */
-@WebServlet(name = "SvUsuario", urlPatterns = {"/SvUsuario"})
-public class SvUsuario extends HttpServlet {
 
-    
+@WebServlet(name = "SvEditar", urlPatterns = {"/SvEditar"})
+public class SvEditar extends HttpServlet {
+
+    Controladora control = new Controladora();
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
-        
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+           
+        }
     }
 
    
-    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        Controladora control = new Controladora();
-        List<Usuario> listaUsuario = new ArrayList<>();
-        listaUsuario = control.traerUsuario();
+        
+        int id = Integer.parseInt(request.getParameter("id"));
+        
+        Usuario usu = control.traerUsuario(id);
         
         HttpSession misesion = request.getSession();
-        misesion.setAttribute("listaUsuario", listaUsuario);
+        misesion.setAttribute("usuEditar", usu);
         
-        response.sendRedirect("mostrarUsuario.jsp");
-       
+        response.sendRedirect("editarUsuario.jsp");
+        
+        
+        
     }
 
-   
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        Controladora control = new Controladora();
+            
         String dni = request.getParameter("dni");
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
@@ -68,8 +63,7 @@ public class SvUsuario extends HttpServlet {
         String telefono = request.getParameter("telefono");
         String clave = request.getParameter("clave");
         
-        
-
+        Usuario usu = (Usuario) request.getSession().getAttribute("usuEditar");
         
         LocalDate fecha_nacimiento_localdate = null; 
         Date fecha_nacimiento_util_date = null;      
@@ -93,11 +87,6 @@ public class SvUsuario extends HttpServlet {
             
         }
         
-        
-        
-        
-        
-        Usuario usu = new Usuario();
         usu.setDni(dni);
         usu.setNombre(nombre);
         usu.setApellido(apellido);
@@ -105,14 +94,16 @@ public class SvUsuario extends HttpServlet {
         usu.setFecha_nacimiento(fecha_nacimiento_util_date);
         usu.setTelefono(telefono);
         usu.setClave(clave);
-        control.crearUsuario(usu);
         
-        HttpSession misesion = request.getSession();
-        response.sendRedirect("principal.jsp");
+        
+        
+        control.editarUsuario(usu);
+        
+        response.sendRedirect("mostrarUsuario.jsp");
         
     }
 
-    
+   
     @Override
     public String getServletInfo() {
         return "Short description";
